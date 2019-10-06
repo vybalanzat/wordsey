@@ -12,34 +12,36 @@
     <div>
         <h1>Psychic Game!</h1>
         <p id="directions-text">Guess the letter I'm thinking of!</p>
-        <p id="userWins-text">Wins :</p>
-        <p id="userLosses-text">Losses: </p>
-        <p id="userAttempt-text">Guesses left: </p>
+        <p id="userWins-text"></p>
+        <p id="userLosses-text"></p>
+        <p id="userAttempt-text"></p>
+        <p id="userWrongGuess-text"></p>
         <p id="userGuess-text"></p>
     </div>
 
     <script type="text/javascript">
 
+        // array of computer choice
+
+        var computerChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+        // variable to hold wins and losses
+
+        var wins = 0
+        var losses = 0
+        var attempts = 10
+        var wrongGuess = []
+
+        // html where we want to display it
+
+        var directionsText = document.getElementById("directions-text");
+        var userWinsText = document.getElementById("userWins-text");
+        var userLossesText = document.getElementById("userLosses-text");
+        var userAttemptText = document.getElementById("userAttempt-text");
+        var userWrongGuessText = document.getElementById("userWrongGuess-text");
+        var userGuessText = document.getElementById("userGuess-text");
+
         for (var i = 0; i < 12; i++) {
-
-            // array of computer choice
-
-            var computerChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-            // variable to hold wins and losses
-
-            var wins = 0
-            var losses = 0
-            var attempts = 0
-
-            // html where we want to display it
-
-            var directionsText = document.getElementById("directions-text");
-            var userWinsText = document.getElementById("userWins-text");
-            var userLossesText = document.getElementById("userLosses-text");
-            var userAttemptText = Document.getElementById("userAttempt-text");
-            var userGuessText = document.getElementById("userGuess-text");
-
             //run when a key is pressed
 
             document.onkeyup = function (event) {
@@ -51,32 +53,34 @@
                 if (userGuess === computerChoice) {
                     wins++;
                 }
-                else if (userGuess == !computerChoice);
+                else if (userGuess == !computerChoice){
                     attempts--;
+                    wrongGuess.push(userGuess);
+                    if (attempts === 0) {
+                        losses++;
+                    }
+
                 }
-                else {
-                    losses++;
-                }
+                userGuessText.textContent = "You chose: " + userGuess;
+                userWinsText.textContent = "Wins :" + wins;
+                userLossesText.textContent = "Losses :" + losses;
+                userAttemptText.textContent = "Attempts Left: " + attempts;
+                userWrongGuessText.textContent  = "Wrong Guesses :" + wrongGuess;
 
-
-                userGuessText.textContent = userGuess;
-                userWinsText.textContent = wins;
-                userLossesText.textContent = losses;
-                userAttemptText.textContent = attempts;
-
-
-
-
-
-
-
-
+                
             }
+
+
+            
+
+
+
+
+
+
+
         }
-
-
-
-
+        
 
 
     </script>
