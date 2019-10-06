@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Psychic Game!</h1>
+        <p id="directions-text">Guess the letter I'm thinking of!</p>
+        <p id="userWins-text">Wins :</p>
+        <p id="userLosses-text">Losses: </p>
+        <p id="userAttempt-text">Guesses left: </p>
+        <p id="userGuess-text"></p>
+    </div>
+
+    <script type="text/javascript">
+
+        for (var i = 0; i < 12; i++) {
+
+            // array of computer choice
+
+            var computerChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+            // variable to hold wins and losses
+
+            var wins = 0
+            var losses = 0
+            var attempts = 0
+
+            // html where we want to display it
+
+            var directionsText = document.getElementById("directions-text");
+            var userWinsText = document.getElementById("userWins-text");
+            var userLossesText = document.getElementById("userLosses-text");
+            var userAttemptText = Document.getElementById("userAttempt-text");
+            var userGuessText = document.getElementById("userGuess-text");
+
+            //run when a key is pressed
+
+            document.onkeyup = function (event) {
+
+                var userGuess = event.key
+
+                var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+
+                if (userGuess === computerChoice) {
+                    wins++;
+                }
+                else if (userGuess == !computerChoice);
+                    attempts--;
+                }
+                else {
+                    losses++;
+                }
+
+
+                userGuessText.textContent = userGuess;
+                userWinsText.textContent = wins;
+                userLossesText.textContent = losses;
+                userAttemptText.textContent = attempts;
+
+
+
+
+
+
+
+
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
