@@ -41,14 +41,17 @@
         var userWrongGuessText = document.getElementById("userWrongGuess-text");
         var userGuessText = document.getElementById("userGuess-text");
 
-        for (var i = 0; i < 12; i++) {
+       // for (var i = 0; i < 12; i++) {
             //run when a key is pressed
+
 
             document.onkeyup = function (event) {
 
                 var userGuess = event.key
 
                 var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+
+                console.log(computerGuess);
 
                 if (userGuess === computerChoice) {
                     wins++;
@@ -57,21 +60,22 @@
                     attempts--;
                     wrongGuess.push(userGuess);
                     if (attempts === 0) {
-                        losses++;
-                        list.clear(wrongGuess);
+                        losses++;   
+                        wrongGuess = [];
+                        attempts = 10;
                     }
-
                 }
-                userGuessText.textContent = "You chose: " + userGuess;
-                userWinsText.textContent = "Wins :" + wins;
-                userLossesText.textContent = "Losses :" + losses;
-                userAttemptText.textContent = "Attempts Left: " + attempts;
-                userWrongGuessText.textContent  = "Wrong Guesses :" + wrongGuess;
+                
+                userGuessText.textContent = "You chose : " + userGuess;
+                userWinsText.textContent = "Wins : " + wins;
+                userLossesText.textContent = "Losses : " + losses;
+                userAttemptText.textContent = "Attempts Left : " + attempts;
+                userWrongGuessText.textContent  = "Wrong Guesses : " + wrongGuess;
 
                 
             }
 
-        }
+        
         
 
 
