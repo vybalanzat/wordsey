@@ -31,6 +31,7 @@
         var losses = 0;
         var attempts = 10;
         var wrongGuess = [];
+        var computerGuess = '';
 
         // html where we want to display it
 
@@ -47,9 +48,9 @@
 
             document.onkeyup = function (event) {
 
-                var userGuess = event.key
+                var userGuess = event.key;
 
-                var computerGuess = '';
+                
                 
                 if(attempts === 10 ) 
                 {
@@ -58,8 +59,11 @@
 
                 console.log(computerGuess);
 
-                if (userGuess === computerChoice) {
+                if (userGuess === computerGuess) {
                     wins++;
+                    wrongGuess= [];
+                    attempts = 10;
+
                 }
                 else {
                     attempts--;
