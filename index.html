@@ -29,7 +29,7 @@
 
         var wins = 0
         var losses = 0
-        var attempts = 10
+        var attempts = 11
         var wrongGuess = []
 
         // html where we want to display it
@@ -53,11 +53,12 @@
                 if (userGuess === computerChoice) {
                     wins++;
                 }
-                else if (userGuess == !computerChoice){
+                else {
                     attempts--;
                     wrongGuess.push(userGuess);
                     if (attempts === 0) {
                         losses++;
+                        list.clear(wrongGuess);
                     }
 
                 }
@@ -69,15 +70,6 @@
 
                 
             }
-
-
-            
-
-
-
-
-
-
 
         }
         
