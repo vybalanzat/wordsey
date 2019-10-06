@@ -27,10 +27,10 @@
 
         // variable to hold wins and losses
 
-        var wins = 0
-        var losses = 0
-        var attempts = 11
-        var wrongGuess = []
+        var wins = 0;
+        var losses = 0;
+        var attempts = 10;
+        var wrongGuess = [];
 
         // html where we want to display it
 
@@ -49,7 +49,12 @@
 
                 var userGuess = event.key
 
-                var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+                var computerGuess = '';
+                
+                if(attempts === 10 ) 
+                {
+                    computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+                }
 
                 console.log(computerGuess);
 
