@@ -5,89 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Lobster&display=swap" rel="stylesheet">
+
     <title>Document</title>
+    
 </head>
 
 <body>
     <div>
         <h1>Psychic Game!</h1>
         <p id="directions-text">Guess the letter I'm thinking of!</p>
+        <p>Wins:</p>
         <p id="userWins-text"></p>
+        <p>Losses:</p>
         <p id="userLosses-text"></p>
+        <p>Attempts:</p>
         <p id="userAttempt-text"></p>
+        <p>Guesses so far:</p>
         <p id="userWrongGuess-text"></p>
         <p id="userGuess-text"></p>
     </div>
 
-    <script type="text/javascript">
-
-        // array of computer choice
-
-        var computerChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-        // variable to hold wins and losses
-
-        var wins = 0;
-        var losses = 0;
-        var attempts = 10;
-        var wrongGuess = [];
-        var computerGuess = '';
-
-        // html where we want to display it
-
-        var directionsText = document.getElementById("directions-text");
-        var userWinsText = document.getElementById("userWins-text");
-        var userLossesText = document.getElementById("userLosses-text");
-        var userAttemptText = document.getElementById("userAttempt-text");
-        var userWrongGuessText = document.getElementById("userWrongGuess-text");
-        var userGuessText = document.getElementById("userGuess-text");
-
-       // for (var i = 0; i < 12; i++) {
-            //run when a key is pressed
-
-
-            document.onkeyup = function (event) {
-
-                var userGuess = event.key;
-
-                
-                
-                if(attempts === 10 ) 
-                {
-                    computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-                }
-
-                console.log(computerGuess);
-
-                if (userGuess === computerGuess) {
-                    wins++;
-                    wrongGuess= [];
-                    attempts = 10;
-
-                }
-                else {
-                    attempts--;
-                    wrongGuess.push(userGuess);
-                    if (attempts === 0) {
-                        losses++;   
-                        wrongGuess = [];
-                        attempts = 10;
-                    }
-                }
-                
-                userGuessText.textContent = "You chose : " + userGuess;
-                userWinsText.textContent = "Wins : " + wins;
-                userLossesText.textContent = "Losses : " + losses;
-                userAttemptText.textContent = "Attempts Left : " + attempts;
-                userWrongGuessText.textContent  = "Wrong Guesses : " + wrongGuess;
-
-                
-            }
-
-        
-        
-
-
+    <script type="text/javascript" src="assets/javascript/game.js">
     </script>
 </body>
 
